@@ -62,15 +62,15 @@ public class Number {
 					r = -r;
 				int stop = i;
 				double result = Math.pow(l, r);
-				StringBuffer resString = new StringBuffer(exp);
+				StringBuffer tempString = new StringBuffer(exp);
 				
 				for(int j = start; j <= stop; j++) {
-					resString.deleteCharAt(start);
-					exp = resString.toString();
+					tempString.deleteCharAt(start);
+					exp = tempString.toString();
 				}
-				resString = new StringBuffer(exp);
-				resString.insert(start, String.valueOf(result));
-				exp = resString.toString();
+				tempString = new StringBuffer(exp);
+				tempString.insert(start, String.valueOf(result));
+				exp = tempString.toString();
 				i = start;
 			}
 		}
@@ -110,15 +110,15 @@ public class Number {
 					r = -r;
 				int stop = i;
 				double result = l/r;
-				StringBuffer resString = new StringBuffer(exp);
+				StringBuffer tempString = new StringBuffer(exp);
 				
 				for(int j = start; j <= stop; j++) {
-					resString.deleteCharAt(start);
-					exp = resString.toString();
+					tempString.deleteCharAt(start);
+					exp = tempString.toString();
 				}
-				resString = new StringBuffer(exp);
-				resString.insert(start, String.valueOf(result));
-				exp = resString.toString();
+				tempString = new StringBuffer(exp);
+				tempString.insert(start, String.valueOf(result));
+				exp = tempString.toString();
 				i = start;
 			}
 		}
@@ -158,15 +158,15 @@ public class Number {
 					r = -r;
 				int stop = i;
 				double result = l*r;
-				StringBuffer resString = new StringBuffer(exp);
+				StringBuffer tempString = new StringBuffer(exp);
 				
 				for(int j = start; j <= stop; j++) {
-					resString.deleteCharAt(start);
-					exp = resString.toString();
+					tempString.deleteCharAt(start);
+					exp = tempString.toString();
 				}
-				resString = new StringBuffer(exp);
-				resString.insert(start, String.valueOf(result));
-				exp = resString.toString();
+				tempString = new StringBuffer(exp);
+				tempString.insert(start, String.valueOf(result));
+				exp = tempString.toString();
 				i = start;
 			}
 		}
@@ -174,28 +174,28 @@ public class Number {
 		//change symbol '+-' to '-', '-+' to '-', '++' to '+', and '--' to '+'
 		for(int i = 0; i < exp.length(); i++) { 
 			if(exp.charAt(i) == '+' && exp.charAt(i + 1) == '-') {
-				StringBuffer resString = new StringBuffer(exp);
-				resString.deleteCharAt(i);
-				exp = resString.toString();
+				StringBuffer tempString = new StringBuffer(exp);
+				tempString.deleteCharAt(i);
+				exp = tempString.toString();
 				i--;
 			}
 			else if(exp.charAt(i) == '-' && exp.charAt(i + 1) == '+') {
-				StringBuffer resString = new StringBuffer(exp);
-				resString.deleteCharAt(i + 1);
-				exp = resString.toString();
+				StringBuffer tempString = new StringBuffer(exp);
+				tempString.deleteCharAt(i + 1);
+				exp = tempString.toString();
 				i--;
 			}
 			else if(exp.charAt(i) == '+' && exp.charAt(i + 1) == '+') {
-				StringBuffer resString = new StringBuffer(exp);
-				resString.deleteCharAt(i);
-				exp = resString.toString();
+				StringBuffer tempString = new StringBuffer(exp);
+				tempString.deleteCharAt(i);
+				exp = tempString.toString();
 				i--;
 			}
 			else if(exp.charAt(i) == '-' && exp.charAt(i + 1) == '-') {
-				StringBuffer resString = new StringBuffer(exp);
-				resString.delete(i, i + 2);
-				resString.insert(i, "+");
-				exp = resString.toString();
+				StringBuffer tempString = new StringBuffer(exp);
+				tempString.delete(i, i + 2);
+				tempString.insert(i, "+");
+				exp = tempString.toString();
 				i--;
 			}
 		}
