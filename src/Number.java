@@ -1,7 +1,7 @@
 public class Number {
-	int pos;
+	private int pos;
 	
-	double separateNumber(int i,String s){
+	public double separateNumber(int i,String s){
 		this.pos=i;
 		String k = "";
 		double number = 0;
@@ -18,7 +18,7 @@ public class Number {
 		return number;
 	}
 	
-	String separateExpression(int i,String s) {
+	public String separateExpression(int i,String s) {
 		i++;
 		String k = "";
 		while(s.charAt(i) != ')') {
@@ -28,7 +28,7 @@ public class Number {
 		return k;
 	}
 	
-	double operation(String exp) {
+	public double operation(String exp) {
 		for(int i = 0; i < exp.length(); i++) { 
 			if(exp.charAt(i) == '^') { //find if there has any symbol '^' in the expression
 				boolean rMinus = false;
