@@ -1,23 +1,24 @@
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
 import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
-import javax.swing.SwingConstants;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import javax.swing.event.CaretListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
+import javax.swing.JDesktopPane;
 
-public class Main {
-
+public class Calculator {
 	private JFrame frmMycalculator;
 	private JTextField Expression;
 	private JTextField Answer;
@@ -45,13 +46,12 @@ public class Main {
 	private JButton btnBracket2;
 	private JButton btnScientific;
 	private JButton btnPercent;
-	
-	boolean flag = false; //btnEqual pressed
+	private boolean flag = false; //btnEqual pressed
+	private int flag3 = 0; //specialkeytyped
+	private double answer; 
+	private String expression;
+	private int caretPosition;
 	boolean flag2 = false; //keytyped
-	int flag3 = 0; //specialkeytyped
-	double answer; 
-	String expression;
-	int caretPosition;
 
 	/**
 	 * Launch the application.
@@ -60,7 +60,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main window = new Main();
+					Calculator window = new Calculator();
 					window.frmMycalculator.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -72,7 +72,7 @@ public class Main {
 	/**
 	 * Create the application.
 	 */
-	public Main() {
+	public Calculator() {
 		initialize();
 	}
 	
@@ -493,6 +493,10 @@ public class Main {
 				}
 			}
 		});
+		
+		JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBounds(0, 0, 1, 1);
+		frmMycalculator.getContentPane().add(desktopPane);
 		btnScientific.setForeground(new Color(255, 255, 255));
 		btnScientific.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnScientific.setFocusable(false);
