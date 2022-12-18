@@ -1,8 +1,8 @@
 public class Number {
 	private int pos;
 	
-	public double separateNumber(int i,String s){
-		this.pos=i;
+	public double separateNumber(int i, String s){
+		this.pos = i;
 		String k = "";
 		double number = 0;
 		while(this.pos < s.length() && Character.isDigit(s.charAt(this.pos))
